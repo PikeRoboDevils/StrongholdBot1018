@@ -1,6 +1,7 @@
 package org.usfirst.frc.team1018.robot;
 
 import org.usfirst.frc.team1018.robot.commands.DriveForward;
+import org.usfirst.frc.team1018.robot.commands.Stop;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -16,7 +17,8 @@ public class OI {
 	Button buttonTwo = new JoystickButton(joystick, 2);
 	
 	public OI() {
-		buttonTwo.whenPressed(new DriveForward());
+		buttonOne.whenPressed(new DriveForward());
+		buttonTwo.whenPressed(new Stop());
 	}
 	
     //// CREATING BUTTONS
