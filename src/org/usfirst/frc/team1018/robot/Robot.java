@@ -1,12 +1,18 @@
 
 package org.usfirst.frc.team1018.robot;
 
+import org.usfirst.frc.team1018.robot.commands.ExampleCommand;
+import org.usfirst.frc.team1018.robot.subsystems.ExampleSubsystem;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Jaguar;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.usfirst.frc.team1018.robot.commands.ExampleCommand;
-import org.usfirst.frc.team1018.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -24,17 +30,44 @@ public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
     SendableChooser chooser;
+    
+    RobotDrive myRobot;
+	Joystick rightStick,
+		leftStick;
+	SpeedController leftMotorOne,
+			leftMotorTwo,
+			rightMotorOne,
+			rightMotorTwo;
 
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
+    	System.out.println("Robot Initializing");
 		oi = new OI();
         chooser = new SendableChooser();
         chooser.addDefault("Default Auto", new ExampleCommand());
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
+        
+     // Initialize the motors
+    	leftMotorOne = new Jaguar(1);
+		leftMotorTwo = new Jaguar(3);
+		rightMotorOne = new Victor(0);
+		rightMotorTwo = new Victor(2);
+    	
+    	// Invert the motors
+    	leftMotorOne.setInverted(true);
+    	leftMotorTwo.setInverted(true);
+    	rightMotorOne.setInverted(true);
+    	rightMotorTwo.setInverted(true);
+    	
+    	
+    	myRobot = new RobotDrive(leftMotorOne,leftMotorTwo,rightMotorOne,rightMotorTwo);
+    	
+    	rightStick = new Joystick(1);
+    	leftStick = new Joystick(0);
     }
 	
 	/**
@@ -85,6 +118,7 @@ public class Robot extends IterativeRobot {
     }
 
     public void teleopInit() {
+    	System.out.println("Teleop Initialized");
 		// This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
@@ -97,6 +131,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        myRobot.tankDrive(leftStick, rightStick);
        }
     
     /**
