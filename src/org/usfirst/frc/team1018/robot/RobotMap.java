@@ -16,7 +16,7 @@ public class RobotMap {
    public SpeedController backLeft;
    public SpeedController backRight;
     	
-    public RobotMap(int fl, int fr, int bl, int br){
+    public RobotMap(int fl, int bl, int fr, int br){
     	frontLeft = new Jaguar(fl);
     	frontRight = new Jaguar(fr);
     	backLeft = new Jaguar(bl);

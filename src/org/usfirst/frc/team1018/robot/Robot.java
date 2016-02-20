@@ -6,10 +6,7 @@ import org.usfirst.frc.team1018.robot.subsystems.ExampleSubsystem;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Jaguar;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -32,12 +29,8 @@ public class Robot extends IterativeRobot {
     SendableChooser chooser;
     
     RobotDrive myRobot;
-	Joystick rightStick,
-		leftStick;
-	SpeedController frontLeft,
-			backLeft,
-			frontRight,
-			backRight;
+    RobotMap robotMap;
+	
 
     /**
      * This function is run when the robot is first started up and should be
@@ -46,22 +39,16 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	System.out.println("Robot Initializing");
 		oi = new OI();
+		robotMap = new RobotMap(0, 1, 2, 3);
         chooser = new SendableChooser();
         chooser.addDefault("Default Auto", new ExampleCommand());
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
-        
-     // Initialize the motors
-    	frontLeft = new Jaguar(0);
-		backLeft = new Jaguar(1);
-		frontRight = new Jaguar(2);
-		backRight = new Jaguar(3);
     	
     	
-    	myRobot = new RobotDrive(frontLeft,backLeft,frontRight,backRight);
+    	myRobot = new RobotDrive(robotMap.frontLeft,robotMap.backLeft,robotMap.frontRight,robotMap.backRight);
     	
-    	rightStick = new Joystick(1);
-    	leftStick = new Joystick(0);
+    	
     }
 	
 	/**
@@ -125,7 +112,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        myRobot.tankDrive(leftStick, rightStick);
+        myRobot.tankDrive(oi.leftStick, oi.rightStick);
        }
     
     /**
