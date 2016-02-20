@@ -1,8 +1,5 @@
 package org.usfirst.frc.team1018.robot;
 
-import edu.wpi.first.wpilibj.Jaguar;
-import edu.wpi.first.wpilibj.Victor;
-
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -11,10 +8,10 @@ import edu.wpi.first.wpilibj.Victor;
  */
 public class RobotMap {
 	
-    public static Jaguar frontLeft = new Jaguar(1);
-    public static Jaguar frontRight = new Jaguar(3);
-    public static Victor backLeft = new Victor(2);
-    public static Victor backRight = new Victor(4);
+//    public static SpeedController frontLeft = new Jaguar(0);
+//    public static SpeedController frontRight = new Jaguar(2);
+//    public static SpeedController backLeft = new Jaguar(1);
+//    public static SpeedController backRight = new Jaguar(3);
     	
     
     // For example to map the left and right motors, you could define the

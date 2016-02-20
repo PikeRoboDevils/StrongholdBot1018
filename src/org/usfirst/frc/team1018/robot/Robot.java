@@ -34,10 +34,10 @@ public class Robot extends IterativeRobot {
     RobotDrive myRobot;
 	Joystick rightStick,
 		leftStick;
-	SpeedController leftMotorOne,
-			leftMotorTwo,
-			rightMotorOne,
-			rightMotorTwo;
+	SpeedController frontLeft,
+			backLeft,
+			frontRight,
+			backRight;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -52,19 +52,13 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData("Auto mode", chooser);
         
      // Initialize the motors
-    	leftMotorOne = new Jaguar(1);
-		leftMotorTwo = new Jaguar(3);
-		rightMotorOne = new Victor(0);
-		rightMotorTwo = new Victor(2);
-    	
-    	// Invert the motors
-    	leftMotorOne.setInverted(true);
-    	leftMotorTwo.setInverted(true);
-    	rightMotorOne.setInverted(true);
-    	rightMotorTwo.setInverted(true);
+    	frontLeft = new Jaguar(0);
+		backLeft = new Jaguar(1);
+		frontRight = new Jaguar(2);
+		backRight = new Jaguar(3);
     	
     	
-    	myRobot = new RobotDrive(leftMotorOne,leftMotorTwo,rightMotorOne,rightMotorTwo);
+    	myRobot = new RobotDrive(frontLeft,backLeft,frontRight,backRight);
     	
     	rightStick = new Joystick(1);
     	leftStick = new Joystick(0);
