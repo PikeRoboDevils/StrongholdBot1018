@@ -11,10 +11,16 @@ import edu.wpi.first.wpilibj.SpeedController;
  */
 public class RobotMap {
 	
+	// Drive Motors
    public SpeedController frontLeft;
    public SpeedController frontRight;
    public SpeedController backLeft;
    public SpeedController backRight;
+   
+   // Shooter Motors
+   public SpeedController shooterTop;
+   public SpeedController shooterBottom;
+   
     	
     public RobotMap(int fl, int bl, int fr, int br){
     	frontLeft = new Jaguar(fl);
