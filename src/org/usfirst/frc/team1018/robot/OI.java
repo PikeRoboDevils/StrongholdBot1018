@@ -1,6 +1,10 @@
 package org.usfirst.frc.team1018.robot;
 
+import org.usfirst.frc.team1018.robot.commands.StartShooter;
+
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -9,10 +13,12 @@ import edu.wpi.first.wpilibj.Joystick;
 public class OI {
 	Joystick rightStick,
 		leftStick;
+	Button buttonZero = new JoystickButton(rightStick, 0);
 	
 	public OI(){
 		rightStick = new Joystick(1);
     	leftStick = new Joystick(0);
+    	buttonZero.whenPressed(new StartShooter());
 	}
 	
     //// CREATING BUTTONS
