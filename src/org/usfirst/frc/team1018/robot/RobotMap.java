@@ -1,7 +1,8 @@
 package org.usfirst.frc.team1018.robot;
 
-import edu.wpi.first.wpilibj.Jaguar;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Talon;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -30,13 +31,22 @@ public class RobotMap {
    public SpeedController FingerTwo;
    
     	
-    public RobotMap(int fl, int bl, int fr, int br){
-    	frontLeft = new Jaguar(fl);
-    	frontRight = new Jaguar(fr);
-    	backLeft = new Jaguar(bl);
-    	backRight = new Jaguar(br);
- }
+    public RobotMap(){
     
+    }
+    
+    public void initDriveMotors(int fl, int bl, int fr, int br){
+    	frontLeft = new Talon(fl);
+    	frontRight = new Talon(fr);
+    	backLeft = new Talon(bl);
+    	backRight = new Talon(br);
+    }
+    
+    public void initShooterMotors(int tm, int bm){
+    	shooterTop = new Talon(tm);
+    	shooterBottom = new Talon(bm);
+    	
+    }
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.
     // public static int leftMotor = 1;

@@ -35,7 +35,7 @@ public class SpinIntake extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	intake.SpinIntake();
+ 
     }
 
     // Called when another command which requires one or more of the same

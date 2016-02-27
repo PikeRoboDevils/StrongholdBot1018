@@ -2,7 +2,7 @@ package org.usfirst.frc.team1018.robot.subsystems;
 
 import org.usfirst.frc.team1018.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.Jaguar;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -14,8 +14,8 @@ public class Fingers extends Subsystem {
     // here. Call these from Commands.
 
 	public Fingers() {
-		myRobot.FingerOne = new Jaguar(8);
-		myRobot.FingerTwo = new Jaguar(9);
+		myRobot.FingerOne = new Talon(8);
+		myRobot.FingerTwo = new Talon(9);
 	}
 	
 	public void ExtendFingers(){
