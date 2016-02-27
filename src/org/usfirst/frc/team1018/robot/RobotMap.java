@@ -21,6 +21,14 @@ public class RobotMap {
    public SpeedController shooterTop;
    public SpeedController shooterBottom;
    
+   //intake motors
+   public SpeedController intakeWheelLeft;
+   public SpeedController intakeWheelRight;
+   
+   //Finger motors
+   public SpeedController FingerOne;
+   public SpeedController FingerTwo;
+   
     	
     public RobotMap(int fl, int bl, int fr, int br){
     	frontLeft = new Jaguar(fl);
