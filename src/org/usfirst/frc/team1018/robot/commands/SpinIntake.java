@@ -1,6 +1,6 @@
 package org.usfirst.frc.team1018.robot.commands;
 
-import org.usfirst.frc.team1018.robot.subsystems.Intake;
+import org.usfirst.frc.team1018.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -8,14 +8,9 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class SpinIntake extends Command {
-	Intake intake;
 	
     public SpinIntake() {
-    	intake = new Intake();
-    	requires(intake);
-    	
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    	requires(Robot.intake);
     }
 
     // Called just before this Command runs the first time
@@ -24,7 +19,7 @@ public class SpinIntake extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	intake.SpinIntake();
+    	Robot.intake.SpinIntake();
     	
     }
 

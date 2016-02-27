@@ -1,6 +1,10 @@
 
 package org.usfirst.frc.team1018.robot;
 
+import org.usfirst.frc.team1018.robot.subsystems.Fingers;
+import org.usfirst.frc.team1018.robot.subsystems.Intake;
+import org.usfirst.frc.team1018.robot.subsystems.Shooter;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Command;
@@ -20,6 +24,9 @@ public class Robot extends IterativeRobot {
 
 //	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
+	public static Shooter shooter;
+	public static Fingers fingers;
+	public static Intake intake;
 
     Command autonomousCommand;
     SendableChooser chooser;
@@ -36,16 +43,14 @@ public class Robot extends IterativeRobot {
     	System.out.println("Robot Initializing");
 		oi = new OI();
 		robotMap = new RobotMap();
-		robotMap.initDriveMotors(0,1,2,3);
+		robotMap.init();
         chooser = new SendableChooser();
 //        chooser.addDefault("Default Auto", new ExampleCommand());
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
     	
     	
-    	myRobot = new RobotDrive(robotMap.frontLeft,robotMap.backLeft,robotMap.frontRight,robotMap.backRight);
-    	
-    	
+    	myRobot = new RobotDrive(robotMap.frontLeft, robotMap.backLeft, robotMap.frontRight, robotMap.backRight);
     }
 	
 	/**
@@ -110,7 +115,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         myRobot.tankDrive(oi.leftStick, oi.rightStick);
-       }
+    }
     
     /**
      * This function is called periodically during test mode

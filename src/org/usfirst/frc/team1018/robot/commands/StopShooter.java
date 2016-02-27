@@ -1,6 +1,6 @@
 package org.usfirst.frc.team1018.robot.commands;
 
-import org.usfirst.frc.team1018.robot.subsystems.Shooter;
+import org.usfirst.frc.team1018.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 /**
@@ -9,12 +9,9 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class StopShooter extends Command {
-	
-	Shooter shooter; 
 
     public StopShooter() {
-    	shooter = new Shooter();
-    	requires(shooter);
+    	requires(Robot.shooter);
     	
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -22,7 +19,7 @@ public class StopShooter extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	shooter.shooterStop();
+    	Robot.shooter.shooterStop();
     }
 
     // Called repeatedly when this Command is scheduled to run

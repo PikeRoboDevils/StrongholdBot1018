@@ -9,23 +9,22 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Fingers extends Subsystem {
-	public RobotMap myRobot = new RobotMap(0,1,2,3); 
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-
+	
+	private Talon fingerOne = RobotMap.fingerOne;
+	private Talon fingerTwo = RobotMap.fingerTwo;
+	
 	public Fingers() {
-		myRobot.FingerOne = new Talon(8);
-		myRobot.FingerTwo = new Talon(9);
+		// Empty constructor. Consider removing.
 	}
 	
 	public void ExtendFingers(){
-		myRobot.FingerOne.set(1);
-		myRobot.FingerTwo.set(2);
+		this.fingerOne.set(1.0);
+		this.fingerTwo.set(1.0);
 	}
 	
 	public void RetractFingers(){
-		myRobot.FingerOne.set(-1);
-		myRobot.FingerTwo.set(-1);
+		this.fingerOne.set(-1.0);
+		this.fingerTwo.set(-1.0);
 		
 	}
 	

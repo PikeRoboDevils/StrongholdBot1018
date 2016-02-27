@@ -1,6 +1,6 @@
 package org.usfirst.frc.team1018.robot.commands;
 
-import org.usfirst.frc.team1018.robot.subsystems.Intake;
+import org.usfirst.frc.team1018.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -8,11 +8,9 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class ExtendIntake extends Command {
-	Intake intake;
 	
     public ExtendIntake() {
-    	intake = new Intake();
-    	requires(intake);
+    	requires(Robot.intake);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -23,7 +21,7 @@ public class ExtendIntake extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	intake.ExtendIntake();
+    	Robot.intake.ExtendIntake();
     	
     }
 

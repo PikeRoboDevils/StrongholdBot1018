@@ -1,6 +1,6 @@
 package org.usfirst.frc.team1018.robot.commands;
 
-import org.usfirst.frc.team1018.robot.subsystems.Fingers;
+import org.usfirst.frc.team1018.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -8,11 +8,9 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class ExtendFingers extends Command {
-	Fingers fingers;
 	
     public ExtendFingers() {
-    	fingers = new Fingers();
-    	requires(fingers);
+    	requires(Robot.fingers);
     	
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -24,7 +22,7 @@ public class ExtendFingers extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	fingers.ExtendFingers();
+    	Robot.fingers.ExtendFingers();
     }
 
     // Make this return true when this Command no longer needs to run execute()
