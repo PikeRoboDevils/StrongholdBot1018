@@ -13,12 +13,12 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 	Joystick rightStick,
 		leftStick;
-	Button buttonZero = new JoystickButton(rightStick, 0);
+	Button buttonZero = new JoystickButton(this.rightStick, 2);
 	
 	public OI(){
 		rightStick = new Joystick(1);
     	leftStick = new Joystick(0);
-    	buttonZero.whenPressed(new StartShooter());
+    	this.buttonZero.whenPressed(new StartShooter());
 	}
 	
     //// CREATING BUTTONS
