@@ -44,6 +44,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		robotMap = new RobotMap();
 		robotMap.init();
+		shooter = new Shooter();
         chooser = new SendableChooser();
 //        chooser.addDefault("Default Auto", new ExampleCommand());
 //        chooser.addObject("My Auto", new MyAutoCommand());
@@ -115,13 +116,6 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         myRobot.tankDrive(oi.leftStick, oi.rightStick);
-//        if(oi.rightStick.getRawButton(2)){
-//    		robotMap.shooterTop.set(0.5);
-//    		robotMap.shooterBottom.set(-0.5);
-//        } else {
-//        	robotMap.shooterTop.set(0.0);
-//        	robotMap.shooterBottom.set(0.0);
-//        }
     }
     
     /**

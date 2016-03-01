@@ -11,14 +11,18 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	Joystick rightStick,
-		leftStick;
-	Button buttonZero = new JoystickButton(this.rightStick, 2);
+	private static int PORT_TWO = 2;
+	public Joystick rightStick;
+	public Joystick leftStick;
+	
+	public Button buttonZero;
 	
 	public OI(){
-		rightStick = new Joystick(1);
-    	leftStick = new Joystick(0);
-    	this.buttonZero.whenPressed(new StartShooter());
+		this.rightStick = new Joystick(1);
+    	this.leftStick = new Joystick(0);
+    	
+    	this.buttonZero = new JoystickButton(this.rightStick, PORT_TWO);
+//    	this.buttonZero.whenPressed(new StartShooter());
 	}
 	
     //// CREATING BUTTONS
