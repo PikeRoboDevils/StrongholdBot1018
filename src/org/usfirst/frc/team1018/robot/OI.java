@@ -34,7 +34,7 @@ public class OI {
     	this.buttonFive = new JoystickButton(this.rightStick, BUTTON_FIVE);
     	
     	this.buttonOne.whileHeld(new StartShooter());
-    	this.buttonOne.whenReleased(new StopShooter());
+//    	this.buttonOne.whenReleased(new StopShooter());
     	this.buttonFour.whenPressed(new DecreaseShooterSpeed());
     	this.buttonFive.whenPressed(new IncreaseShooterSpeed());
 	}

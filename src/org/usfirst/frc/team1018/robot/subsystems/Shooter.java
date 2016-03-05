@@ -18,26 +18,30 @@ public class Shooter extends Subsystem {
   	public Shooter() {
   		SmartDashboard.putString("Shooter initalized", "true");
   		this.shooterBottom.setInverted(true);
-  		speed = 0.0;
+  		setSpeed(0.0);
   	}
   
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
     }
     
     public void shooterStart() {
     	SmartDashboard.putString("Shooter started", "true");
-    	speed = 0.25;
-    	this.shooterTop.set(speed);
-    	this.shooterBottom.set(speed);
+    	
+    	// if not spinning
+    	if(getSpeed() == 0.0){
+    		setSpeed(0.25);
+        	this.shooterTop.set(getSpeed());
+        	this.shooterBottom.set(getSpeed());
+    	} else {
+    		this.shooterTop.set(getSpeed());
+        	this.shooterBottom.set(getSpeed());
+    	}
     }
     
     public void shooterStop() {
-    	speed = 0.0;
-    	this.shooterTop.set(speed);
-    	this.shooterBottom.set(speed);
-    	
+    	setSpeed(0.0);
+    	this.shooterTop.set(getSpeed());
+    	this.shooterBottom.set(getSpeed());
     }
     
     public void increaseShooterSpeed(){
@@ -55,5 +59,12 @@ public class Shooter extends Subsystem {
         	this.shooterBottom.set(speed);
     	}
     }
+    
+    public double getSpeed() {
+    	return this.speed;
+    }
+    
+    public void setSpeed(double s) {
+    	this.speed = s;
+    }
 }
-

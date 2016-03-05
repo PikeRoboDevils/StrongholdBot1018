@@ -35,10 +35,12 @@ public class StartShooter extends Command {
     protected void end() {
     	SmartDashboard.putString("Flywheels spinning ", "false");
     	SmartDashboard.putString("Finished ", "true");
+    	Robot.shooter.shooterStop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }
