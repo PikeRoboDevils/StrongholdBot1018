@@ -11,9 +11,6 @@ public class DecreaseShooterSpeed extends Command {
 
     public DecreaseShooterSpeed() {
     	requires(Robot.shooter);
-    	
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time

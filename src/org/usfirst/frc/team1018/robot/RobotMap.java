@@ -1,5 +1,6 @@
 package org.usfirst.frc.team1018.robot;
 
+import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.Talon;
 
 /**
@@ -25,14 +26,14 @@ public class RobotMap {
 	private static final int RIGHT_FINGER_MOTOR = 7;
 	
 	// Drive Motors
-   public static Talon frontLeft;
-   public static Talon frontRight;
-   public static Talon backLeft;
-   public static Talon backRight;
+   public static Jaguar frontLeft;
+   public static Jaguar frontRight;
+   public static Jaguar backLeft;
+   public static Jaguar backRight;
    
    // Shooter Motors
-   public static Talon shooterTop;
-   public static Talon shooterBottom;
+   public static Jaguar shooterTop;
+   public static Jaguar shooterBottom;
    
    //intake motors
    public static Talon intakeWheelLeft;
@@ -50,15 +51,15 @@ public class RobotMap {
    }
     
     private void initDriveMotors(int fl, int bl, int fr, int br){
-    	frontLeft = new Talon(fl);
-    	frontRight = new Talon(fr);
-    	backLeft = new Talon(bl);
-    	backRight = new Talon(br);
+    	frontLeft = new Jaguar(fl);
+    	frontRight = new Jaguar(fr);
+    	backLeft = new Jaguar(bl);
+    	backRight = new Jaguar(br);
     }
     
    private void initShooterMotors(int tm, int bm){
-    	shooterTop = new Talon(tm);
-    	shooterBottom = new Talon(bm);
+    	shooterTop = new Jaguar(tm);
+    	shooterBottom = new Jaguar(bm);
     }
     
    private void initFingerMotors(int lm, int rm){
