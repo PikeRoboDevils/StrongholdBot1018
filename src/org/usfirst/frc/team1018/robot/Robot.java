@@ -1,11 +1,11 @@
 
 package org.usfirst.frc.team1018.robot;
 
-import org.usfirst.frc.team1018.robot.commands.ExampleCommand;
-import org.usfirst.frc.team1018.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team1018.robot.subsystems.Fingers;
+import org.usfirst.frc.team1018.robot.subsystems.Intake;
+import org.usfirst.frc.team1018.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -22,8 +22,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+//	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
+	public static Shooter shooter;
+	public static Fingers fingers;
+	public static Intake intake;
 
     Command autonomousCommand;
     SendableChooser chooser;
@@ -38,17 +41,16 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
     	System.out.println("Robot Initializing");
-		oi = new OI();
-		robotMap = new RobotMap(0, 1, 2, 3);
+		robotMap = new RobotMap();
+		robotMap.init();
+		shooter = new Shooter();
         chooser = new SendableChooser();
-        chooser.addDefault("Default Auto", new ExampleCommand());
-//        chooser.addObject("My Auto", new MyAutoCommand());
+        SmartDashboard.putString("Robot initialized", "true");
         SmartDashboard.putData("Auto mode", chooser);
     	
     	
-    	myRobot = new RobotDrive(robotMap.frontLeft,robotMap.backLeft,robotMap.frontRight,robotMap.backRight);
-    	
-    	
+    	myRobot = new RobotDrive(robotMap.frontLeft, robotMap.backLeft, robotMap.frontRight, robotMap.backRight);
+    	oi = new OI();
     }
 	
 	/**
@@ -99,7 +101,7 @@ public class Robot extends IterativeRobot {
     }
 
     public void teleopInit() {
-    	System.out.println("Teleop Initialized");
+    	SmartDashboard.putString("Teleop Initialized", "true");
 		// This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
@@ -113,7 +115,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         myRobot.tankDrive(oi.leftStick, oi.rightStick);
-       }
+    }
     
     /**
      * This function is called periodically during test mode

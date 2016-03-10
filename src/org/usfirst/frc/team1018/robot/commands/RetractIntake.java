@@ -1,18 +1,19 @@
-
 package org.usfirst.frc.team1018.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc.team1018.robot.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ExampleCommand extends Command {
-
-    public ExampleCommand() {
+public class RetractIntake extends Command {
+	
+    public RetractIntake() {
+    	requires(Robot.intake);
+    	
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.exampleSubsystem);
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
@@ -21,6 +22,8 @@ public class ExampleCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.intake.RetractIntake();
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -30,6 +33,8 @@ public class ExampleCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	
+    	
     }
 
     // Called when another command which requires one or more of the same
