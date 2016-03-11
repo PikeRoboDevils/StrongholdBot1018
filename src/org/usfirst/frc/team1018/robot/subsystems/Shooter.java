@@ -26,39 +26,13 @@ public class Shooter extends Subsystem {
     
     public void shooterStart() {
     	SmartDashboard.putString("Shooter started", "true");
-    	
-    	// if not spinning
-    	if(getSpeed() == 0.0){
-    		setSpeed(0.25);
-        	this.shooterTop.set(getSpeed());
-        	this.shooterBottom.set(getSpeed());
-    	} else {
-    		this.shooterTop.set(getSpeed());
-        	this.shooterBottom.set(getSpeed());
-    	}
+		setSpeed(0.8);
     }
     
     public void shooterStop() {
     	setSpeed(0.0);
-    	this.shooterTop.set(getSpeed());
-    	this.shooterBottom.set(getSpeed());
     }
     
-    public void increaseShooterSpeed(){
-    	if(speed < 1.0){
-    		speed += 0.25;
-        	this.shooterTop.set(speed);
-        	this.shooterBottom.set(speed);
-    	}
-    }
-    
-    public void decreaseShooterSpeed(){
-    	if(speed > 0.0){
-    		speed -= 0.25;
-        	this.shooterTop.set(speed);
-        	this.shooterBottom.set(speed);
-    	}
-    }
     
     public double getSpeed() {
     	return this.speed;
@@ -66,5 +40,7 @@ public class Shooter extends Subsystem {
     
     public void setSpeed(double s) {
     	this.speed = s;
+    	this.shooterTop.set(this.speed);
+    	this.shooterBottom.set(this.speed);
     }
 }
