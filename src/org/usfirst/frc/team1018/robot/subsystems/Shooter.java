@@ -2,7 +2,7 @@ package org.usfirst.frc.team1018.robot.subsystems;
 
 import org.usfirst.frc.team1018.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.Jaguar;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -12,8 +12,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Shooter extends Subsystem {
 	private double speed; 
 	
-	private Jaguar shooterTop = RobotMap.shooterTop;
-	private Jaguar shooterBottom = RobotMap.shooterBottom;
+	private Talon shooterTop = RobotMap.shooterTop;
+	private Talon shooterBottom = RobotMap.shooterBottom;
   
   	public Shooter() {
   		SmartDashboard.putString("Shooter initalized", "true");

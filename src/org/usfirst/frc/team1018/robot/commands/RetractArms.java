@@ -7,11 +7,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ExtendFingers extends Command {
+public class RetractArms extends Command {
 	
-    public ExtendFingers() {
+    public RetractArms() {
     	requires(Robot.fingers);
-    	
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -22,7 +21,7 @@ public class ExtendFingers extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.fingers.ExtendFingers();
+    	Robot.fingers.RetractArms();
     }
 
     // Make this return true when this Command no longer needs to run execute()

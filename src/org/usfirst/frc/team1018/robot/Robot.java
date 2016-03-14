@@ -1,7 +1,7 @@
 
 package org.usfirst.frc.team1018.robot;
 
-import org.usfirst.frc.team1018.robot.subsystems.Fingers;
+import org.usfirst.frc.team1018.robot.subsystems.Arms;
 import org.usfirst.frc.team1018.robot.subsystems.Intake;
 import org.usfirst.frc.team1018.robot.subsystems.Shooter;
 
@@ -25,7 +25,7 @@ public class Robot extends IterativeRobot {
 //	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static Shooter shooter;
-	public static Fingers fingers;
+	public static Arms fingers;
 	public static Intake intake;
 
     Command autonomousCommand;
