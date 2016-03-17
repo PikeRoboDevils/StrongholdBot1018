@@ -1,5 +1,6 @@
 package org.usfirst.frc.team1018.robot;
 
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Talon;
 
 /**
@@ -49,10 +50,10 @@ public class RobotMap {
    public static Talon fingerTwo;
    
    // The rest of the motors
-   public static Talon motorEight;
-   public static Talon motorNine;
-   public static Talon motorTen;
-   public static Talon motorEleven;
+   public static Servo flipperLeft;
+   public static Servo flipperRight;
+   public static Talon intakeArmLeft;
+   public static Talon intakeArmRight;
    
 
    public void init(){
@@ -80,9 +81,9 @@ public class RobotMap {
    }
    
    private void initTheRest(int one, int two, int three, int four){
-	   motorEight = new Talon(one);
-	   motorNine = new Talon(one);
-	   motorTen = new Talon(one);
-	   motorEleven = new Talon(one);
+	   flipperLeft = new Servo(one);
+	   flipperRight = new Servo(two);
+	   intakeArmLeft = new Talon(three);
+	   intakeArmRight = new Talon(four);
    }
 }

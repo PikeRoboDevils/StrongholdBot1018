@@ -18,23 +18,22 @@ public class RetractIntake extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.intake.initializeCounter();
+    	Robot.intake.retractIntake();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.intake.RetractIntake();
-    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	return Robot.intake.isSwitchSet();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	
-    	
+    	Robot.intake.stopArmIntake();
     }
 
     // Called when another command which requires one or more of the same
