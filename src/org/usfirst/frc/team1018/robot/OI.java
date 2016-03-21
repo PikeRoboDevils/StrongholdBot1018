@@ -47,7 +47,9 @@ public class OI {
     	this.climbButton = new JoystickButton(this.gamepad, GAMEPAD_FOUR);
     	this.extraButtonOne = new JoystickButton(this.gamepad, GAMEPAD_TEN);
     	this.extraButtonTwo = new JoystickButton(this.gamepad, GAMEPAD_TWO);
+    	
     	this.fireButton.whileHeld(new StartShooter());
+    	
 	}
 }
 
