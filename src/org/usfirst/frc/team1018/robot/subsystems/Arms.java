@@ -8,21 +8,21 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class Fingers extends Subsystem {
+public class Arms extends Subsystem {
 	
 	private Talon fingerOne = RobotMap.fingerOne;
 	private Talon fingerTwo = RobotMap.fingerTwo;
 	
-	public Fingers() {
+	public Arms() {
 		// Empty constructor. Consider removing.
 	}
 	
-	public void ExtendFingers(){
+	public void ExtendArms(){
 		this.fingerOne.set(1.0);
 		this.fingerTwo.set(1.0);
 	}
 	
-	public void RetractFingers(){
+	public void RetractArms(){
 		this.fingerOne.set(-1.0);
 		this.fingerTwo.set(-1.0);
 		

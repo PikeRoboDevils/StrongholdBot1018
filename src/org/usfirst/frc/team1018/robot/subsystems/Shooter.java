@@ -2,7 +2,8 @@ package org.usfirst.frc.team1018.robot.subsystems;
 
 import org.usfirst.frc.team1018.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.Jaguar;
+import edu.wpi.first.wpilibj.Servo;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -12,8 +13,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Shooter extends Subsystem {
 	private double speed; 
 	
-	private Jaguar shooterTop = RobotMap.shooterTop;
-	private Jaguar shooterBottom = RobotMap.shooterBottom;
+	private Talon shooterTop = RobotMap.shooterTop;
+	private Talon shooterBottom = RobotMap.shooterBottom;
+	private Servo flipperLeft = RobotMap.flipperLeft;
+	private Servo flipperRight = RobotMap.flipperRight;
   
   	public Shooter() {
   		SmartDashboard.putString("Shooter initalized", "true");
@@ -26,39 +29,13 @@ public class Shooter extends Subsystem {
     
     public void shooterStart() {
     	SmartDashboard.putString("Shooter started", "true");
-    	
-    	// if not spinning
-    	if(getSpeed() == 0.0){
-    		setSpeed(0.25);
-        	this.shooterTop.set(getSpeed());
-        	this.shooterBottom.set(getSpeed());
-    	} else {
-    		this.shooterTop.set(getSpeed());
-        	this.shooterBottom.set(getSpeed());
-    	}
+		setSpeed(0.8);
     }
     
     public void shooterStop() {
     	setSpeed(0.0);
-    	this.shooterTop.set(getSpeed());
-    	this.shooterBottom.set(getSpeed());
     }
     
-    public void increaseShooterSpeed(){
-    	if(speed < 1.0){
-    		speed += 0.25;
-        	this.shooterTop.set(speed);
-        	this.shooterBottom.set(speed);
-    	}
-    }
-    
-    public void decreaseShooterSpeed(){
-    	if(speed > 0.0){
-    		speed -= 0.25;
-        	this.shooterTop.set(speed);
-        	this.shooterBottom.set(speed);
-    	}
-    }
     
     public double getSpeed() {
     	return this.speed;
@@ -66,5 +43,25 @@ public class Shooter extends Subsystem {
     
     public void setSpeed(double s) {
     	this.speed = s;
+    	this.shooterTop.set(this.speed);
+    	this.shooterBottom.set(this.speed);
+    }
+    
+    public double getLeftServoPosition(){
+    	return this.flipperLeft.get();
+    }
+    
+    public double getRightServoPosition(){
+    	return this.flipperRight.get();
+    }
+    
+    public void flipperUp(){
+    	this.flipperLeft.set(1.0);
+    	this.flipperRight.set(1.0);
+    }
+    
+    public void flipperDown(){
+    	this.flipperLeft.set(0.0);
+    	this.flipperRight.set(0.0);
     }
 }
