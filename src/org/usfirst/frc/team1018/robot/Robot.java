@@ -44,6 +44,7 @@ public class Robot extends IterativeRobot {
 		robotMap = new RobotMap();
 		robotMap.init();
 		shooter = new Shooter();
+		intake = new Intake();
         chooser = new SendableChooser();
         SmartDashboard.putString("Robot initialized", "true");
         SmartDashboard.putData("Auto mode", chooser);
